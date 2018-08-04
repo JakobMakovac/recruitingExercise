@@ -80,12 +80,11 @@
 
 .dropDownContainer {
     height: 235px;
-    overflow-y: scroll;
     position: relative;
+    overflow-y: auto;
 }
 
 #dropDownElements {
-
     margin-left: 5px;
     margin-right: 5px;
 }

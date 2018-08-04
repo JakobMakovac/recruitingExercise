@@ -1,0 +1,74 @@
+<div class="popup">
+  <div class="popup-content">
+
+    <div class="titleDiv">
+      <p class="title">How to save money on beauty products</p>
+    </div>
+
+    <div class="subtitle">
+      Share email with your teammates
+    </div>
+    
+    <div class="addedContacts">
+      <div *ngFor="let addedContact of addedContacts" class="contact">
+	{{addedContact.name}}
+	<span (click)="removeContact(addedContact)" class="removeButton">
+	  &times;</span>
+      </div> 
+    </div>
+    
+    <div id="dropDown">
+      <div class="searchContainer">
+	<input (keyup)="getKeyword($event)" 
+	       (focus)="showSearch()" autocomplete="off"
+	       type="text" placeholder="Type name or email"
+	       id="searchField">
+      </div>
+      <div class="mainContainer">
+
+	<div id="email">
+	  <div class="sender">
+	    David Cunder
+	    <div class="timeStamp">
+	      16:08
+	    </div>
+	  </div>
+	  <div class="recipients">
+	    to Tomi Sefman, Anja Skočir
+	    <div class="recipientsNumber">
+	      3
+	    </div>
+	  </div>
+	  <div class="emailContent">
+	   <p>It's hard to say when in our lives each of us become aware of this thing called "astronomy". But it is safe to say that at some point in our lives, each and every one of us has that moment when we are suddenly stunned... </p>
+	  </div>
+	</div>
+
+	<div class="dropDownContainer">
+	  <div id="dropDownElements" class="hidden">
+	    <contact *ngFor="let contact of filteredContacts"
+		     [contact]="contact"
+		     (selectedContact)="addContact($event)">	
+	    </contact>
+	  </div>
+	</div>
+	
+      </div>
+    </div>
+   
+    <div class="commentBox">
+      <input #comment type="text" placeholder="Add a comment..." name="comment" id="comment"
+	     (focus)="hideSearch()">
+    </div>
+
+    <div id="finalMessage" class="hidden">
+	{{ finalMessage }}
+    </div>
+    
+    <div class="submitBox">
+      <button (click)="onConfirm(comment.value)" id="confirmButton" class="hidden">OK</button>
+      <button (click)="onSubmit(comment.value)" id="submitButton">Share</button>
+    </div>
+    
+  </div>
+</div>

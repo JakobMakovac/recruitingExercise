@@ -1,0 +1,26 @@
+.name {
+    font-family: sans-serif;
+    margin: 0px;
+    font-size: 19px;
+    cursor: default;
+}
+
+.email {
+    font-family: sans-serif;
+    margin: 0px;
+    color: #888;
+    font-size: 15px;
+    cursor: default;
+}
+
+.listElement {
+    padding: 0px;
+}
+
+.listElement:hover > div {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.bg {
+    padding: 10px;
+}

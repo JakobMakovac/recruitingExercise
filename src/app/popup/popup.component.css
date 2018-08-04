@@ -130,7 +130,7 @@ input:focus, button:focus {
     position: absolute;
     bottom: 0;
     right: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .email-responsive {
@@ -140,7 +140,7 @@ input:focus, button:focus {
     position: absolute;
     top: 0;
     right: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .sender {

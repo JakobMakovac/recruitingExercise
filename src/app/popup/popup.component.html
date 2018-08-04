@@ -1,5 +1,5 @@
-<div class="popup">
-  <div class="popup-content">
+<div class="popup" (window:resize)="onResize($event)">
+  <div id="content" class="popup-content">
 
     <div class="titleDiv">
       <p class="title">How to save money on beauty products</p>
@@ -26,7 +26,7 @@
       </div>
       <div class="mainContainer">
 
-	<div id="email">
+	<div id="email-content" class="email">
 	  <div class="sender">
 	    David Cunder
 	    <div class="timeStamp">

@@ -14,8 +14,9 @@ export class ContactComponent implements OnInit {
 
   constructor() {
     this.selectedContact = new EventEmitter();
-
   }
+
+// propagates back the information about selected contact
 
   clickedContact(contact: Contact): void {
     this.selectedContact.emit(contact);

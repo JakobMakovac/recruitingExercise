@@ -16,7 +16,7 @@ export class PopupComponent implements OnInit {
   lastFilter: string = "";
   finalMessage: string = "";
 
-// load sample contacts from contacts.json and populate contacts array
+// load sample contacts from contacts.json and populate contacts array 
 
   constructor() {
 
@@ -25,9 +25,19 @@ export class PopupComponent implements OnInit {
         this.contacts.push(new Contact(contactsJson[c].name, contactsJson[c].email));
       }
     }
+
   }
 
-  ngOnInit(){}
+// makes responsive adjustments to elements if screen width is below 600 px  
+
+  ngOnInit(){
+    if(window.innerWidth < 600){
+      document.getElementById("content").classList.remove('popup-content');
+      document.getElementById("content").classList.add('popup-content-responsive');
+      document.getElementById("email-content").classList.remove('email');
+      document.getElementById("email-content").classList.add('email-responsive');
+    }
+  }
   
 // showSearch and hideSearch are connected to search and comment input field
 // Used to display and hide dropdown menu with contacts
@@ -36,13 +46,13 @@ export class PopupComponent implements OnInit {
     document.getElementById("dropDownElements").classList.remove('hidden');
     document.getElementById("searchField").classList.remove('inputError');
     (<HTMLInputElement>document.getElementById("searchField")).placeholder="Type name or email";
-    document.getElementById("email").classList.add('hidden');
+    document.getElementById("email-content").classList.add('hidden');
     this.filterResults(this.lastFilter);
   }
 
   hideSearch(): void {
     document.getElementById("dropDownElements").classList.add('hidden');
-    document.getElementById("email").classList.remove('hidden');
+    document.getElementById("email-content").classList.remove('hidden');
   }
 
   addContact(contact: Contact): void {
@@ -121,5 +131,21 @@ export class PopupComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("comment")).value="";
     this.hideSearch();
     this.addedContacts = [];
+  }
+
+// Responsive design, makes adjustments to elements if window is resized below 600 px
+
+  onResize(event: any): void {
+    if(event.target.innerWidth < 600){
+      document.getElementById("content").classList.remove('popup-content');
+      document.getElementById("content").classList.add('popup-content-responsive');
+      document.getElementById("email-content").classList.remove('email');
+      document.getElementById("email-content").classList.add('email-responsive');
+    } else {
+      document.getElementById("content").classList.add('popup-content');
+      document.getElementById("content").classList.remove('popup-content-responsive');
+      document.getElementById("email-content").classList.add('email');
+      document.getElementById("email-content").classList.remove('email-responsive');
+    }
   }
 }

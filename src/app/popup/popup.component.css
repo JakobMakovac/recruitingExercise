@@ -23,6 +23,10 @@
     display: none;
 }
 
+input:focus, button:focus {
+    outline: none;
+}
+
 .inputError {
     background-color: #ffa0a0;
 }
